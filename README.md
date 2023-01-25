@@ -1,21 +1,31 @@
-# {Company} Node Library
+# Lotus Node Library
 
-[![npm shield](https://img.shields.io/npm/v/@fern-api/{company})](https://www.npmjs.com/package/@fern-api/{company})
+[![npm shield](https://img.shields.io/npm/v/@fern-api/lotus)](https://www.npmjs.com/package/@fern-api/lotus)
 
-The {Company} Node.js library provides access to the {Company} API from JavaScript/TypeScript.
+The Lotus Node.js library provides access to the Lotus API from JavaScript/TypeScript.
 
 ## Documentation
 
-API documentation is available at <{docs_url}>.
+API documentation is available at https://docs.uselotus.io/api-reference/api-overview.
 
 ## Usage
 
-[![Try it out](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](TODO)
+[![Try it out](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-dwmvzj?file=app.ts)
 
 ```typescript
-import { TODO } from "TODO";
+import { LotusApi, LotusApiClient } from '@fern-api/lotus';
 
-const TODO
+const client = new LotusApiClient({
+  xApiKey: 'my-api-key',
+});
+
+const response = client.customers.create({
+  customerId: 'acme',
+  email: 'joe@acme.com',
+  paymentProvider: LotusApi.PaymentProvider.Stripe,
+});
+
+console.log('Received response from Lotus', response);
 ```
 
 ## Beta status
