@@ -9,7 +9,7 @@ import { Client as CustomersClient } from "./api/resources/customers/client/Clie
 export declare namespace LotusApiClient {
     interface Options {
         environment?: environments.LotusApiEnvironment | string;
-        xApiKey?: core.Supplier<string>;
+        authorization?: core.Supplier<string>;
     }
 }
 

@@ -12,7 +12,7 @@ import * as errors from "../../../../errors";
 export declare namespace Client {
     interface Options {
         environment?: environments.LotusApiEnvironment | string;
-        xApiKey?: core.Supplier<string>;
+        authorization?: core.Supplier<string>;
     }
 }
 
@@ -24,7 +24,7 @@ export class Client {
             url: urlJoin(this.options.environment ?? environments.LotusApiEnvironment.Cloud, "/api/customers"),
             method: "POST",
             headers: {
-                "X-API-KEY": await core.Supplier.get(this.options.xApiKey),
+                Authorization: await core.Supplier.get(this.options.authorization),
             },
             body: await serializers.customers.create.Request.json(request),
         });
@@ -64,7 +64,7 @@ export class Client {
             ),
             method: "GET",
             headers: {
-                "X-API-KEY": await core.Supplier.get(this.options.xApiKey),
+                Authorization: await core.Supplier.get(this.options.authorization),
             },
         });
         if (_response.ok) {
@@ -100,7 +100,7 @@ export class Client {
             url: urlJoin(this.options.environment ?? environments.LotusApiEnvironment.Cloud, "/api/customers"),
             method: "GET",
             headers: {
-                "X-API-KEY": await core.Supplier.get(this.options.xApiKey),
+                Authorization: await core.Supplier.get(this.options.authorization),
             },
         });
         if (_response.ok) {

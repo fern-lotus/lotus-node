@@ -1,6 +1,6 @@
 {
     "name": "@fern-api/lotus",
-    "version": "0.0.9",
+    "version": "0.0.2",
     "repository": "https://github.com/fern-lotus/lotus-node",
     "files": [
         "dist",
